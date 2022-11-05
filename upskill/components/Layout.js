@@ -1,14 +1,17 @@
 import styles from '../styles/Layout.module.css'
-import AppBar from '@material-ui/core/AppBar';
+import Footer from './Footer'
+import Navbar from './Navbar'
 function Layout({ children }) {
+  
     return (
         <>
-         <AppBar position='static'/>
+         <Navbar/>
         <div className={styles.container}>
             <main className={styles.main}>
                 {children}
             </main>
         </div>
+        <Footer/>
         </>
     )
 }

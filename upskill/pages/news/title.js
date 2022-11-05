@@ -1,7 +1,7 @@
-export default function ArticleListByCategory({articles,category}){
+export default function ArticleListBytitle({articles,title}){
     return(
         <>
-        <h1>Showing news for category <i>{category}</i></h1>
+        <h1>Showing news for title <i>{title}</i></h1>
         {
             articles.map(article=>{
                 return(
@@ -20,12 +20,12 @@ export default function ArticleListByCategory({articles,category}){
 
 export async function getServerSideProps(context){
     const {params,req,res,query}=context
-    const response=await fetch(`http://localhost:4000/news?category=${params.category}`);
+    const response=await fetch(`http://localhost:4000/news?title=${params.title}`);
     const data=await response.json();
     return {
         props:{
             articles:data,
-            category:params.category,
+            title:params.title,
         }
     }
    
